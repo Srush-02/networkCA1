@@ -10,6 +10,6 @@ public class Controller {
 	@GetMapping("/")
 	public String getData() {
 		
-		return "Done";
+		return "Done dockerConfig";
 	}
 }
