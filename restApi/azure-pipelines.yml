@@ -1,0 +1,27 @@
+variables:
+  SEMVER_MAJOR: 0
+  SEMVER_MINOR: 0
+
+name: $(SEMVER_MAJOR).$(SEMVER_MINOR).$(Build.BuildId)
+
+trigger:
+  branches:
+    include:
+    - develop
+    - release/*
+  paths:
+    include:
+    - services/data-service/*
+    - build/docker-compose-build-push-service.yml
+    - build/kustomize-edit-dsc-image.yml
+    - build/buildJavaImage.yml
+    - services/data-service/pom.xml
+    exclude:
+    - services/data-service/README.md
+stages:
+- template: ../../../build/buildJavaImage.yml
+  parameters:
+    services: data-service
+    semver: $(SEMVER_MAJOR).$(SEMVER_MINOR).$(Build.BuildId)
+    dsckustomizeDir : 
+      - DataService
