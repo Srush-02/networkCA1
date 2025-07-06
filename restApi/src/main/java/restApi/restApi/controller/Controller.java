@@ -10,6 +10,6 @@ public class Controller {
 	@GetMapping("/")
 	public String getData() {
 		
-		return "Testing AWS EC2";
+		return "Testing AWS EC2 file";
 	}
 }
