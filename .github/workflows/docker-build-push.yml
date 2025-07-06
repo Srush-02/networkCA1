@@ -51,5 +51,4 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_HUB_USERNAME }}/restapi:latest
             ${{ secrets.DOCKER_HUB_USERNAME }}/restapi:${{ github.sha }}
-          build-args: |
-            SPRING_PROFILES_ACTIVE=prod
+          no-cache: true
