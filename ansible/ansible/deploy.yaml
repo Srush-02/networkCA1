@@ -1,0 +1,21 @@
+---
+- name: Deploy Docker Compose App to EC2
+  hosts: tag_Name_my-ec2-instance-name
+  become: true
+
+  tasks:
+    - name: Ensure app directory exists
+      file:
+        path: /opt/myapp
+        state: directory
+        mode: '0755'
+
+    - name: Copy docker-compose.yml
+      copy:
+        src: ../docker-compose.yml
+        dest: /opt/myapp/docker-compose.yml
+
+    - name: Run docker-compose up
+      command: docker compose up -d
+      args:
+        chdir: /opt/myapp
