@@ -3,7 +3,7 @@ name: Deploy Docker Compose to EC2
 on:
   push:
     branches:
-      - main  # or your deployment branch
+      - main  
 
 jobs:
   deploy:
@@ -28,5 +28,5 @@ jobs:
             EC2_HOST: 3.249.160.176
             ANSIBLE_HOST_KEY_CHECKING: False
         run: |
-          ansible-playbook -i "${{ env.EC2_HOST }}," -u ec2-user --private-key ~/.ssh/id_rsa ansible/ansible/playbook.yaml
+          ansible-playbook -i "${{ env.EC2_HOST }}," -u ubuntu --private-key ~/.ssh/id_rsa ansible/ansible/playbook.yaml
           

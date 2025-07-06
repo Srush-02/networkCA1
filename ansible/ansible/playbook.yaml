@@ -4,8 +4,8 @@
   become: true
 
   vars:
-    aws_region: "eu-west-1"  # Set your AWS region here
-    ecr_registry: "668426476528.dkr.ecr.eu-west-1.amazonaws.com"  # Your ECR registry
+    aws_region: "eu-west-1" 
+    ecr_registry: "668426476528.dkr.ecr.eu-west-1.amazonaws.com"  
 
   tasks:
     - name: Ensure app directory exists
