@@ -10,6 +10,6 @@ public class Controller {
 	@GetMapping("/")
 	public String getData() {
 		
-		return "Done dockerConfig";
+		return "Testing AWS EC2";
 	}
 }
