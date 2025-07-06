@@ -3,12 +3,9 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - "restApi/restApi/**"
+
   pull_request:
     branches: [ "main" ]
-    paths:
-      - "restApi/restApi/**"
 
 jobs:
   build-and-push:

@@ -3,12 +3,8 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - "restApi/frontEnd/**"
   pull_request:
     branches: [ "main" ]
-    paths:
-      - "restApi/frontEnd/**"
 
 
 jobs:
