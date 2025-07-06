@@ -1,7 +1,5 @@
 FROM openjdk:17
 WORKDIR /app
-#compile  java application JAR file into the container
-COPY ./target/restApi-0.0.1-SNAPSHOT.jar /app/restApi-0.0.1-SNAPSHOT.jar
-# expose the port the spring application will run on 
+COPY ./target/app.jar /app/app.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app/restApi-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
