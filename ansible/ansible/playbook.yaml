@@ -35,4 +35,4 @@
     - name: Run docker-compose up
       command: docker compose up -d
       args:
-        chdir: /opt/myapp
+        chdir: /opt/myapp

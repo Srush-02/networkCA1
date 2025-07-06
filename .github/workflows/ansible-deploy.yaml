@@ -24,8 +24,9 @@ jobs:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
           
       - name: Run Ansible playbook
-        run: |
-          ansible-playbook -i "${{ env.EC2_HOST }}," -u ec2-user --private-key ~/.ssh/id_rsa ansible/ansible/playbook.yaml
-          env:
+        env:
             EC2_HOST: 3.249.160.176
             ANSIBLE_HOST_KEY_CHECKING: False
+        run: |
+          ansible-playbook -i "${{ env.EC2_HOST }}," -u ec2-user --private-key ~/.ssh/id_rsa ansible/ansible/playbook.yaml
+          
