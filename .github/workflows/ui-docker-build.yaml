@@ -4,11 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "restApi/frontEnd/**
+      - "restApi/frontEnd/**"
   pull_request:
     branches: [ "main" ]
     paths:
-      - "restApi/frontEnd/**
+      - "restApi/frontEnd/**"
 
 jobs:
   build-and-push:
