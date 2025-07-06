@@ -23,7 +23,7 @@ jobs:
     - name: Build the Spring Boot app
       run: |
         cd restApi
-        ./mvnw clean package -DskipTests
+        mvn clean package -DskipTests
         
     - name: Rename JAR to app.jar
       run: |
