@@ -27,4 +27,4 @@ jobs:
         run: |
           ansible-playbook -i "${{ env.EC2_HOST }}," -u ec2-user --private-key ~/.ssh/id_rsa playbook.yml
         env:
-          EC2_HOST: your-ec2-public-ip-or-hostname
+          EC2_HOST: 3.249.160.176
