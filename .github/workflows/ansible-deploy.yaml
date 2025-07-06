@@ -71,7 +71,7 @@ jobs:
                 debug:
                   msg: "Successfully connected to {{ inventory_hostname }}"
           
-   
+		  EOF
       - name: Run Ansible playbook
         run: |
           ansible-playbook -i "${{ env.EC2_HOST }}," -u ec2-user --private-key ~/.ssh/id_rsa playbook.yml
