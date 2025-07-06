@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Godinho's</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" 
+    rel="stylesheet">
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">The Godinho's Studio</div>
+    <ul class="menu">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#gallery">Portfolio</a></li>
+      <li><a href="#order">Order</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <section id="hero" class="hero">
+    <div class="hero-bg" style="background-image:url('images/Hero.jpg')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Capture Moments<br><span>That Last Forever</span></h1>
+      <p>Pro-grade photography services for weddings, events, and creative brands.</p>
+      <a href="#order" class="btn">Book Your Session</a>
+    </div>
+  </section>
+  <svg class="separator" viewBox="0 0 1200 100" preserveAspectRatio="none">
+    <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" fill="#fafafa"/>
+  </svg>
+  <section id="gallery" class="gallery">
+    <h2>weddings By Godinho's</h2>
+    <div class="grid">
+      <div class="grid-item large" style="background-image:url('images/gallery1.jpg.jpg')"></div>
+      <div class="grid-item"       style="background-image:url('images/gallery2.jpg.jpg')"></div>
+      <div class="grid-item tall"  style="background-image:url('images/gallery3.jpg.jpg')"></div>
+      <div class="grid-item"       style="background-image:url('images/gallery4.jpg.jpg')"></div>
+      <div class="grid-item wide"  style="background-image:url('images/gallery5.jpg')"></div>
+    </div>
+  </section>
+  <svg class="separator flip" viewBox="0 0 1200 100" preserveAspectRatio="none">
+    <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" fill="#ffffff"/>
+  </svg>
+  <section id="order" class="order">
+    <h2>Place an Order</h2>
+    <div class="card">
+      <form action="#" method="POST">
+        <div class="form-row">
+          <label><span>Name</span><input type="text" name="name" required></label>
+          <label><span>Email</span><input type="email" name="email" required></label>
+        </div>
+        <div class="form-row">
+          <label><span>Package</span>
+            <select name="package" required>
+              <option value="" disabled selected>Select</option>
+              <option>Wedding</option>
+              <option>Portrait</option>
+              <option>Commercial</option>
+              <option>Event</option>
+            </select>
+          </label>
+          <label><span>Date</span><input type="date" name="date" required></label>
+        </div>
+        <label class="full"><span>Details</span>
+          <textarea name="details" rows="4"></textarea>
+        </label>
+        <button type="submit" class="btn">Submit Order</button>
+      </form>
+    </div>
+  </section>
+  <svg class="separator" viewBox="0 0 1200 100" preserveAspectRatio="none">
+    <path d="M0,100 C600,0 600,100 1200,0 L1200,100 L0,100 Z" fill="#fafafa"/>
+  </svg>
+  <footer id="contact" class="contact">
+    <div class="contact-info">
+      <h3>Get in Touch</h3>
+      <p>Email: godinhostudios@gmail.com<br>Phone: +91 9146949880</p>
+    </div>
+    <p class="footnote">&copy; 2025 The Godinho's Studio. All rights reserved.</p>
+  </footer>
+</body>
+</html>
