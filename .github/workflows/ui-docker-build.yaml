@@ -38,7 +38,7 @@ jobs:
         echo "🔎 IMAGE_TAG: $IMAGE_TAG"
 
         echo "🚀 Building Docker image..."
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f ../restApi/frontEnd/Dockerfile ../restApi/frontEnd/
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f frontEnd/Dockerfile frontEnd
 
         echo "📤 Pushing Docker image to ECR..."
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
