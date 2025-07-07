@@ -1,5 +1,5 @@
 const API_BASE_URL = 'http://localhost:3000/patient'; 
-const GETAPI_BASE_URL = '${window.location.protocol}//${window.location.host}:8082/api/v1/patients';
+const GETAPI_BASE_URL = `${window.location.protocol}//${window.location.hostname}:8082/api/v1/patients`;
 let allData = [];
 
 const tableBody = document.getElementById('dataTable').querySelector('tbody');
