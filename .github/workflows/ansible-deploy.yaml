@@ -31,5 +31,5 @@ jobs:
             -u ubuntu \
             --private-key=ansible/ansible/srushti-ec2-keyPair.pem \
             --ssh-extra-args="-o StrictHostKeyChecking=no" \
-            ansible/ansible/playbook.yaml
+            ansible/ansible/playbook.yml
           
