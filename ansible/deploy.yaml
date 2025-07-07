@@ -39,8 +39,14 @@
       args:
         chdir: /opt/myapp
         
+    - name: Run docker-compose pull
+      become: true
+      shell: docker compose pull 
+      args:
+        chdir: /opt/myapp
+        
     - name: Run docker-compose up
       become: true
-      shell: docker compose pull && docker compose up -d
+      shell:  docker compose up
       args:
         chdir: /opt/myapp
