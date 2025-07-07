@@ -1,6 +1,6 @@
 ---
 - name: Deploy Docker Compose App to EC2
-  hosts: all
+  hosts: webservers
   become: true
 
   vars:
