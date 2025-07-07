@@ -31,9 +31,7 @@ jobs:
         run: ls -l
         
       - name: Run Ansible playbook
-        working-directory: ansible/ansible
-        env:
-           
+        working-directory: ansible/ansible    
         run: |
           ansible-playbook -i "${{ env.EC2_HOST }}," \
             -u ubuntu \
