@@ -23,6 +23,10 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
           
+      - name: Debug file list
+        working-directory: ansible/ansible
+        run: ls -l
+        
       - name: Run Ansible playbook
         working-directory: ansible/ansible
         env:
