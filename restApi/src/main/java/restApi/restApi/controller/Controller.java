@@ -13,7 +13,7 @@ import restApi.restApi.entity.Patient;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+@CrossOrigin(origins = "*")
 public class Controller {
 	@GetMapping("/")
 	public String getData() {
