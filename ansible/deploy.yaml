@@ -19,7 +19,6 @@
         dest: /opt/myapp/docker-compose.yml
 
     - name: Log in to AWS ECR
-      become: true
       shell: |
         aws ecr get-login-password --region {{ aws_region }} | \
         docker login --username AWS --password-stdin {{ ecr_registry }}
@@ -34,19 +33,16 @@
         var: ecr_login.stdout_lines
 
     - name: Run docker-compose down
-      become: true
       shell: docker compose down 
       args:
         chdir: /opt/myapp
         
     - name: Run docker-compose pull
-      become: true
       shell: docker compose pull 
       args:
         chdir: /opt/myapp
         
     - name: Run docker-compose up
-      become: true
-      shell:  docker compose up
+      shell:  docker compose up -d
       args:
         chdir: /opt/myapp
