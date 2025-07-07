@@ -15,7 +15,6 @@ import restApi.restApi.entity.Patient;
 @RequestMapping("/api/v1")
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 public class Controller {
-	
 	@GetMapping("/")
 	public String getData() {
 		return "Testing AWS EC2 file";
