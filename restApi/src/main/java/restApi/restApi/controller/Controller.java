@@ -19,6 +19,7 @@ public class Controller {
 	public String getData() {
 		return "Testing AWS EC2 file";
 	}
+	
 
     @GetMapping("/patients")
     public List<Patient> getAllPatients() {
