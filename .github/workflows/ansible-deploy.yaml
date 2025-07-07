@@ -27,5 +27,9 @@ jobs:
         env:
             EC2_HOST: 3.253.74.102
         run: |
-          ansible-playbook -i "${{ env.EC2_HOST }}," -u ubuntu --private-key=ansible/ansible/srushti-ec2-keyPair.pem ansible/ansible/playbook.yaml
+          ansible-playbook -i "${{ env.EC2_HOST }}," \
+            -u ubuntu \
+            --private-key=ansible/ansible/srushti-ec2-keyPair.pem \
+            --ssh-extra-args="-o StrictHostKeyChecking=no" \
+            ansible/ansible/playbook.yaml
           
