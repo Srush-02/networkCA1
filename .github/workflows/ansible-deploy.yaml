@@ -1,41 +1,41 @@
-name: Deploy Docker Compose to EC2
+name: Deploy to EC2 via Ansible
 
 on:
   push:
     branches:
-      - main  
+      - main  # or your target branch
+  workflow_dispatch:  # Allow manual trigger
 
 jobs:
   deploy:
+    name: Ansible Deploy
     runs-on: ubuntu-latest
-    env: 
+
+    env:
+      EC2_HOST: ${{ secrets.EC2_HOST }}
+      PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      EC2_HOST: 3.253.74.102
-      
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
 
-      - name: Install Ansible
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y ansible sshpass
+          sudo apt install -y python3-pip
+          pip install ansible boto3 botocore
 
-      - name: Setup SSH key
-        uses: webfactory/ssh-agent@v0.5.0
-        with:
-          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
-          
-      - name: Debug file list
-        working-directory: ansible/ansible
-        run: ls -l
-        
-      - name: Run Ansible playbook
-        working-directory: ansible/ansible    
+      - name: Prepare SSH key
         run: |
-          ansible-playbook -i "${{ env.EC2_HOST }}," \
-            -u ubuntu \
-            --ssh-extra-args="-o StrictHostKeyChecking=no" \
-            playbook.yml
-          
+          echo "$PRIVATE_KEY" > temp_key.pem
+          chmod 400 temp_key.pem
+
+      - name: Run Ansible Playbook
+        run: |
+          ansible-playbook -i inventory.yaml deploy.yaml
+
+      - name: Clean up SSH key
+        if: always()
+        run: rm -f temp_key.pem

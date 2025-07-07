@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  web80:
+    image: 668426476528.dkr.ecr.eu-west-1.amazonaws.com/srh/webui:latest
+    ports:
+      - "80:80"
+    restart: always
+
+  web8080:
+    image: 668426476528.dkr.ecr.eu-west-1.amazonaws.com/srh/deploy:latest
+    ports:
+      - "8080:8080"
+    restart: always
