@@ -33,7 +33,7 @@
       vars:
         aws_access_key_id: "{{ lookup('env', 'AWS_ACCESS_KEY_ID') }}"
         aws_secret_access_key: "{{ lookup('env', 'AWS_SECRET_ACCESS_KEY') }}"
-      register: ecr_login
+        register: ecr_login
 
     - name: Show ECR login result (for debug)
       debug:
