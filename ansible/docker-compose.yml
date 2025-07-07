@@ -10,5 +10,5 @@ services:
   web8080:
     image: 668426476528.dkr.ecr.eu-west-1.amazonaws.com/srh/deploy:latest
     ports:
-      - "8080:8080"
+      - "8082:8082"
     restart: always

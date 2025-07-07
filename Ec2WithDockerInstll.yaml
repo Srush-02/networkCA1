@@ -1,16 +1,14 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Ec2 Instance
+Description: EC2 Instance with Docker and Docker Compose V2
 
 Parameters:
   KeyName:
     Description: "EC2 private key"
     Type: AWS::EC2::KeyPair::KeyName
-    
+
   LatestUbuntuAmiId:
     Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
     Default: /aws/service/canonical/ubuntu/server/22.04/stable/current/amd64/hvm/ebs-gp2/ami-id
-
-
 
 Resources:
   EC2Instance:
@@ -25,10 +23,18 @@ Resources:
         Fn::Base64: !Sub |
           #!/bin/bash
           apt-get update -y
-          apt-get install -y docker.io
+          apt-get install -y docker.io curl
           systemctl start docker
           systemctl enable docker
-          docker run -d -p 80:80 nginx
+
+          # Install Docker Compose V2 plugin
+          mkdir -p /usr/lib/docker/cli-plugins
+          curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 \
+            -o /usr/lib/docker/cli-plugins/docker-compose
+          chmod +x /usr/lib/docker/cli-plugins/docker-compose
+
+          # Verify Docker Compose is installed
+          docker compose version
       Tags:
         - Key: Name
           Value: UbuntuDockerNGINX
@@ -36,7 +42,7 @@ Resources:
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Allow HTTP and SSH
+      GroupDescription: Allow SSH, HTTP, and custom port 8082
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
@@ -46,8 +52,11 @@ Resources:
           FromPort: 80
           ToPort: 80
           CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8082
+          ToPort: 8082
+          CidrIp: 0.0.0.0/0
 
-  
 Outputs:
   InstanceId:
     Description: Instance ID
