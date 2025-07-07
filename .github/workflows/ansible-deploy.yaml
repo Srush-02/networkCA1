@@ -34,6 +34,8 @@ jobs:
 
       - name: Run Ansible Playbook
         working-directory: ./ansible
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: "False"
         run: |
           ansible-playbook -i inventory.yaml deploy.yaml
 
