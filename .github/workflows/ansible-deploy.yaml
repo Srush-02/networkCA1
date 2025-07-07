@@ -29,13 +29,14 @@ jobs:
 
       - name: Prepare SSH key
         run: |
-          echo "$PRIVATE_KEY" > temp_key.pem
-          chmod 400 temp_key.pem
+          echo "$PRIVATE_KEY" > ansible/temp_key.pem 
+          chmod 400 ansible/temp_key.pem
 
       - name: Run Ansible Playbook
+        working-directory: ./ansible
         run: |
           ansible-playbook -i inventory.yaml deploy.yaml
 
       - name: Clean up SSH key
         if: always()
-        run: rm -f temp_key.pem
+        run: rm -f ansible/temp_key.pem
