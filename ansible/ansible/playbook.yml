@@ -18,6 +18,11 @@
       copy:
         src: docker-compose.yml
         dest: /opt/myapp/docker-compose.yml
+        
+    - name: Install AWS CLI
+      ansible.builtin.package:
+        name: awscli
+        state: present
 
     - name: Log in to AWS ECR
       shell: |
