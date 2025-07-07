@@ -33,8 +33,14 @@
       debug:
         var: ecr_login.stdout_lines
 
+    - name: Run docker-compose down
+      become: true
+      shell: docker compose down 
+      args:
+        chdir: /opt/myapp
+        
     - name: Run docker-compose up
       become: true
-      shell: docker compose up -d
+      shell: docker compose pull && docker compose up -d
       args:
         chdir: /opt/myapp
