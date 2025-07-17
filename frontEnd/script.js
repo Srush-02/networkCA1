@@ -83,7 +83,6 @@ clearFilterForm.addEventListener('click', () => {
   name.value = '';
   fromDateId.value = '';
   toDateID.value = '';
-  statusValue.value = '',
   mobileId.value = '';
   emailId.value = '';
   testNameID.value = '';
