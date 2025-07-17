@@ -74,9 +74,16 @@ form.addEventListener('submit', function (e) {
 const clearFilterForm = document.getElementById("clearBtn")
 
 clearFilterForm.addEventListener('click', () => {
-  fName.value = '';
+    const name = document.getElementById('first_name').value.toLowerCase();
+    const fromDateId = document.getElementById('dateFrom').value;
+  const toDateID = document.getElementById('dateTo').value;
+  const mobileId = document.getElementById('mobileNumber').value;
+  const emailId = document.getElementById('email').value.toLowerCase();
+  const testNameID = document.getElementById('testName')
+  name.value = '';
   fromDateId.value = '';
   toDateID.value = '';
+  statusValue.value = '',
   mobileId.value = '';
   emailId.value = '';
   testNameID.value = '';
