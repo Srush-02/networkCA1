@@ -52,7 +52,9 @@ Step 4: Ansible to EC2 instance
  4.4 Run container with the help of docker compose yml file.
 Step 5: Using AWS instance public IP, docker container runs on EC2 instance to run web application.
 
-Visit public IP:
+Visit EC2 public IP:
+http://34.242.106.146/
+![output](image.png)
 
 
 
