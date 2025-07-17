@@ -11,6 +11,7 @@ const form = document.getElementById('filterForm');
 function renderTable(dataToRender) {
       console.log("data-----------"+dataToRender)
 
+      
   tableBody.innerHTML = '';
 
   if (dataToRender.length === 0) {
