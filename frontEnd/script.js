@@ -11,7 +11,6 @@ const form = document.getElementById('filterForm');
 function renderTable(dataToRender) {
       console.log("data-----------"+dataToRender)
 
-      
   tableBody.innerHTML = '';
 
   if (dataToRender.length === 0) {
@@ -77,6 +76,7 @@ form.addEventListener('submit', function (e) {
 
   window.addEventListener('DOMContentLoaded', () => {
     fetch(API_BASE_URL)
+    
       .then(res => res.json())
       .then(data => {
         allData = data;
