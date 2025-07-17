@@ -24,8 +24,8 @@ public class Controller {
     @GetMapping("/patients")
     public List<Patient> getAllPatients() {
     	return Arrays.asList(
-                new Patient("John Doe", "2025-07-01", "Complete", "1234567890", "john@example.com", "Blood Test", "2025-07-10"),
-                new Patient("Jack", "2025-06-26", "Pending", "9251478200", "jack@example.com", "X-Ray Test", "2025-07-08")
+                new Patient("John Doe", "2025-07-01", "M", "1234567890", "john@example.com", "Blood Test", "2025-07-10", "Complete"),
+                new Patient("Jack", "2025-06-26", "M", "9251478200", "jack@example.com", "X-Ray Test", "2025-07-08", "Pending")
             );
     }
 

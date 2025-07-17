@@ -1,5 +1,7 @@
-const API_BASE_URL = 'http://localhost:3000/patient'; 
-const GETAPI_BASE_URL = `http://3.249.95.125:8082/api/v1/patients`;
+//const API_BASE_URL = 'http://localhost:3000/patient'; 
+//const GETAPI_BASE_URL = `http://3.249.95.125:8082/api/v1/patients`;
+const API_BASE_URL = `http://34.242.106.146:8082/api/v1/patients`;
+
 let allData = [];
 
 const tableBody = document.getElementById('dataTable').querySelector('tbody');
@@ -26,6 +28,7 @@ function renderTable(dataToRender) {
       <td>${patient.patient_email }</td>
       <td>${patient.test_name || ''}</td>
       <td>${patient.appointment_date || ''}</td>
+      <td>${patient.status || ''}</td> 
     `;
     tableBody.appendChild(row);
   });
@@ -71,7 +74,7 @@ form.addEventListener('submit', function (e) {
 
 
   window.addEventListener('DOMContentLoaded', () => {
-    fetch(GETAPI_BASE_URL)
+    fetch(API_BASE_URL)
       .then(res => res.json())
       .then(data => {
         allData = data;

@@ -1,3 +1,9 @@
+# Automated Container Deployment and Administration in the Cloud
+
+## Automated HealthCare App Deployment on Azure using AWS CloudFormation, EC2 instance, Ansible, Docker & GitHub Actions.
+
+Project structure:
+
 
 Step 1: Code commited to github repository 
 Step 2: A GitHub Actions workflow will automatically triggered by pushing the code on specif branch/ main.

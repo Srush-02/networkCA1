@@ -4,13 +4,14 @@ public class Patient {
     private String first_name;
     private String date_of_birth;
     private String gender; 
+	 private String status;
     private String phone_number;
     private String patient_email;
     private String test_name;
     private String appointment_date;
 
     public Patient(String first_name, String date_of_birth, String gender, String phone_number, 
-                   String patient_email, String test_name, String appointment_date) {
+                   String patient_email, String test_name, String appointment_date, String status) {
         this.first_name = first_name;
         this.date_of_birth = date_of_birth;
         this.gender = gender;
@@ -18,6 +19,7 @@ public class Patient {
         this.patient_email = patient_email;
         this.test_name = test_name;
         this.appointment_date = appointment_date;
+		this.status = status;
     }
 
 	public String getFirst_name() {
@@ -74,6 +76,15 @@ public class Patient {
 
 	public void setAppointment_date(String appointment_date) {
 		this.appointment_date = appointment_date;
+	}
+    
+
+	public String getstatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
     
     
