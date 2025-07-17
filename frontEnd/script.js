@@ -42,27 +42,25 @@ function applyFilters() {
 
   const dateFrom = document.getElementById('dateFrom').value;
   const dateTo = document.getElementById('dateTo').value;
-  const statusComplete = document.getElementById('statusComplete').checked;
-  const statusPending = document.getElementById('statusPending').checked;
+  const selectedStatus = document.querySelector('input[name="status"]:checked');
+  const statusValue = selectedStatus ? selectedStatus.value : null;
   const mobile = document.getElementById('mobileNumber').value;
   const email = document.getElementById('email').value.toLowerCase();
+  const testName = document.getElementById('testName')
 
   const filtered = allData.filter(item => {
 
    const itemDate = new Date(item.date);
-   // const fullName = `${item.first_name} ${item.last_name}`.toLowerCase();
-
     const matchName = !name ||(item.first_name && item.first_name.toLowerCase().includes(name));
 
    const matchDateFrom = !dateFrom || new Date(dateFrom) <= itemDate;
     const matchDateTo = !dateTo || itemDate <= new Date(dateTo);
-    const matchStatus = (!statusComplete && !statusPending) ||
-      (statusComplete && item.status === 'Complete') ||
-      (statusPending && item.status === 'Pending');
+    const matchStatus = !statusValue || item.status === statusValue;
     const matchMobile = !mobile || item.phone_number.includes(mobile);
     const matchEmail = !email || item.patient_email.toLowerCase().includes(email);
+    const matchTestName = !testName || item.test_name.toLowerCase().includes(testName);
 
-    return matchName && matchDateFrom && matchDateTo && matchStatus && matchMobile && matchEmail;
+    return matchName && matchDateFrom && matchDateTo && matchStatus && matchMobile && matchEmail && matchTestName;
   });
 
   renderTable(filtered);
@@ -73,6 +71,19 @@ form.addEventListener('submit', function (e) {
   applyFilters();
 });
 
+const clearFilterForm = document.getElementById("clearBtn")
+
+clearFilterForm.addEventListener('click', () => {
+  fName.value = '';
+  fromDateId.value = '';
+  toDateID.value = '';
+  mobileId.value = '';
+  emailId.value = '';
+  testNameID.value = '';
+  const statusRadios = document.querySelectorAll('input[name="status"]');
+  statusRadios.forEach(radio => radio.checked = false);
+  applyFilters()
+});
 
   window.addEventListener('DOMContentLoaded', () => {
     fetch(API_BASE_URL)
