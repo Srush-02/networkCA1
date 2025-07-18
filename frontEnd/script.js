@@ -4,7 +4,6 @@ const API_BASE_URL = `http://3.248.227.168:8082/api/v1/patients`;
 
 let allData = [];
 
-
 const tableBody = document.getElementById('dataTable').querySelector('tbody');
 const form = document.getElementById('filterForm');
 
